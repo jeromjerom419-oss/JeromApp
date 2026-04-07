@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+dist-ssr
+build/
+.next/
+out/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Database (keep if you want the SQLite db in git, but usually ignored)
+# missile_system.db
+
+# Temporary scripts
+check_mysql.js
+check_sqlite.js
+dump_mysql.js

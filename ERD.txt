@@ -1,0 +1,54 @@
+erDiagram
+
+    MISSILE {
+        int missile_id PK
+        string missile_name
+        string missile_type
+        string manufacturer
+        date manufacture_date
+        string status
+    }
+
+    STORAGE_FACILITY {
+        int storage_id PK
+        string facility_name
+        string location
+        int capacity
+    }
+
+    PERSONNEL {
+        int personnel_id PK
+        string name
+        string rank
+        string role
+        string contact_number
+    }
+
+    MAINTENANCE_RECORD {
+        int maintenance_id PK
+        int missile_id FK
+        int personnel_id FK
+        date maintenance_date
+        string remarks
+    }
+
+    LAUNCH_SITE {
+        int launchsite_id PK
+        string site_name
+        string location
+        string status
+    }
+
+    DEPLOYMENT {
+        int deployment_id PK
+        int missile_id FK
+        int launchsite_id FK
+        date deployment_date
+        string mission_status
+    }
+
+    MISSILE }o--|| STORAGE_FACILITY : stored_in
+    MISSILE ||--o{ MAINTENANCE_RECORD : has
+    PERSONNEL ||--o{ MAINTENANCE_RECORD : performs
+    MISSILE ||--o{ DEPLOYMENT : deployed_for
+    LAUNCH_SITE ||--o{ DEPLOYMENT : hosts
